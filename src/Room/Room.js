@@ -25,7 +25,7 @@ const AddRoomForm = () => {
     const token = localStorage.getItem("token"); // Store your JWT in localStorage
 
     try {
-      const res = await fetch("http://localhost:4000/rooms", {
+      const res = await fetch("https://hostel-be-0dx6.onrender.com/rooms", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

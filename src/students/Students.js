@@ -30,7 +30,7 @@ const AddStudentForm = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:4000/students", {
+      const res = await fetch("https://hostel-be-0dx6.onrender.com/students", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

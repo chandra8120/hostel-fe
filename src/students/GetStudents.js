@@ -9,7 +9,7 @@ const StudentList = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const res = await fetch("http://localhost:4000/students");
+        const res = await fetch("https://hostel-be-0dx6.onrender.com/students");
         const data = await res.json();
         setStudents(data);
         setLoading(false);
