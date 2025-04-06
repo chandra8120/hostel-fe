@@ -1,0 +1,68 @@
+.student-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px 40px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .student-form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  input,
+  select {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus,
+  select:focus {
+    border-color: #4caf50;
+    outline: none;
+  }
+  
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #555;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #43a047;
+  }
+  
+  .form-message {
+    text-align: center;
+    color: #d32f2f;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+  
