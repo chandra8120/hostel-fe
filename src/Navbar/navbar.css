@@ -1,156 +1,96 @@
-/* Core navbar styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0288d1;
-  padding: 16px 32px;
+  background: linear-gradient(135deg, #007bff, #00c6ff); /* ✨ Gradient here */
   color: white;
+  padding: 1rem 2rem;
   position: relative;
-  z-index: 1000;
+  z-index: 100;
 }
+
 
 .logo {
   font-size: 24px;
   font-weight: bold;
 }
 
-/* Navigation links */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  color: white;
+  z-index: 2001;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
-  margin: 0;
-  padding: 0;
-  align-items: center;
 }
 
-.nav-links li,
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.nav-links li a:hover {
-  color: #ccefff;
-}
-
-/* Login Icon Styling */
-.login-icon {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.login-text {
-  font-size: 16px;
-}
-
-/* Dropdown Menu */
-.dropdown {
+.nav-links li {
   position: relative;
 }
 
-.dropbtn {
-  cursor: pointer;
-  padding: 10px;
+.nav-links a, .dropbtn {
   color: white;
-  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-/* Dropdown Content */
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #333;
-  min-width: 160px;
-  border-radius: 4px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1001;
+  top: 40px;
+  left: 0;
+  z-index: 1000;
+  min-width: 150px;
+  flex-direction: column;
 }
 
 .dropdown-content a {
   color: white;
-  padding: 12px 16px;
-  display: block;
-  text-decoration: none;
-}
-
-/* ✨ Removed black hover */
-.dropdown-content a:hover {
-  background-color: transparent;
-}
-
-.dropdown:hover .dropdown-content {
+  padding: 10px;
   display: block;
 }
 
-/* Active Link */
-.active-link {
-  color: #ccefff;
-  border-bottom: 2px solid white;
+.dropdown-content.show {
+  display: block;
 }
 
-/* Menu Toggle Button */
-.menu-toggle {
-  display: none;
-  color: white;
-  cursor: pointer;
-}
-
-/* Responsive Styles */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 
   .nav-links {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background-color: #111; /* This is the side menu color ONLY */
     flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #0288d1;
-    padding: 16px;
+    padding-top: 60px;
+    transition: right 0.3s ease-in-out;
+    z-index: 2000;
   }
 
-  .nav-links.active {
-    display: flex;
+  .nav-links.slide-in {
+    right: 0;
   }
 
   .nav-links li {
-    width: 100%;
-  }
-
-  .nav-links a {
-    width: 100%;
-    padding: 10px 0;
-    text-align: left;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: none;
+    padding: 15px 20px;
   }
 
   .dropdown-content {
-    display: block;
-    position: relative;
-    background-color: transparent;
-    box-shadow: none;
-    padding-left: 10px;
+    position: static;
+    background: none;
   }
 
   .dropdown-content a {
-    padding: 6px 0;
-  }
-
-  .dropdown .dropbtn {
-    padding: 10px 0;
+    padding-left: 30px;
   }
 }
