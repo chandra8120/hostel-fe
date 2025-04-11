@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiLogIn, FiUser, FiMenu, FiX } from 'react-icons/fi';
+import { FiLogIn,  FiMenu, FiX } from 'react-icons/fi';
 import './navbar.css';
 
 const Navbar = () => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -39,21 +39,14 @@ const Navbar = () => {
           </div>
         </li>
 
-        {/* Login/Profile Dropdown */}
+        {/* Login Only */}
         <li className="dropdown login-dropdown">
           <span className="dropbtn login-icon">
-            {isLoggedIn ? <FiUser size={20} /> : <FiLogIn size={20} />}
-            <span className="login-text">{isLoggedIn ? 'Account' : 'Login'}</span>
+            <FiLogIn size={20} />
+            <span className="login-text">Login</span>
           </span>
           <div className="dropdown-content">
-            {!isLoggedIn ? (
-              <Link to="/login" onClick={closeMenu}>Login</Link>
-            ) : (
-              <>
-                <Link to="/profile" onClick={closeMenu}>Profile</Link>
-                <Link to="/logout" onClick={closeMenu}>Logout</Link>
-              </>
-            )}
+            <Link to="/login" onClick={closeMenu}>Login</Link>
           </div>
         </li>
       </ul>

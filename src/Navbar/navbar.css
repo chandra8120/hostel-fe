@@ -81,8 +81,9 @@
   text-decoration: none;
 }
 
+/* ✨ Removed black hover */
 .dropdown-content a:hover {
-  background-color: #444;
+  background-color: transparent;
 }
 
 .dropdown:hover .dropdown-content {
