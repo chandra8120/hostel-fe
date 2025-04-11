@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { API_URL } from "../api.config";
 import "./getstudents.css";
-import profile from '../profile.jpg'
+
 
 const StudentList = () => {
   const [students, setStudents] = useState([]);
@@ -9,7 +10,7 @@ const StudentList = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const res = await fetch("https://hostel-be-0dx6.onrender.com/students");
+        const res = await fetch(`${API_URL}/students`);
         const data = await res.json();
         setStudents(data);
         setLoading(false);
@@ -30,16 +31,16 @@ const StudentList = () => {
       <div className="student-grid">
         {students.map((student) => (
           <div className="student-card" key={student._id}>
-            <img src={profile} alt={student.name} />
+            {/* <img src={profile} alt={student.name} /> */}
             <h3>{student.name}</h3>
+            <p> <strong>Phone:</strong> {student.phone}</p>
             <p><strong>Address:</strong> {student.address}</p>
-            <p><strong>Adhar:</strong> {student.adharCard}</p>
+            <p><strong>AdharNo:</strong> {student.adharCard}</p>
             <p><strong>Payment Type:</strong> {student.payType}</p>
             <p><strong>Total:</strong> ₹{student.totalAmount}</p>
-            <p><strong>Pending:</strong> ₹{student.pendingAmount}</p>
             <p><strong>Due:</strong> ₹{student.dueAmount}</p>
             <p><strong>Date Joined:</strong> {new Date(student.dateOfJoining).toLocaleDateString()}</p>
-            <p><strong>Vacated:</strong> {student.vacate ? "Yes" : "No"}</p>
+            <p><strong>Vacated:</strong> {student.vacate}</p>
             <p><strong>Room No:</strong> {student.roomId?.roomNo || "N/A"}</p>
             <p><strong>Floor:</strong> {student.roomId?.floor || "N/A"}</p>
 

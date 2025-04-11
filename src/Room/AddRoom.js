@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import './room.css'
+import { API_URL } from "../api.config";
+import './addroom.css'
 
 const AddRoomForm = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const AddRoomForm = () => {
     const token = localStorage.getItem("token"); // Store your JWT in localStorage
 
     try {
-      const res = await fetch("https://hostel-be-0dx6.onrender.com/rooms", {
+      const res = await fetch(`${API_URL}/rooms`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -73,15 +74,17 @@ const AddRoomForm = () => {
         <input name="sharing" type="number" placeholder="Sharing Type" value={formData.sharing} onChange={handleChange} required />
         <input name="amount" type="number" placeholder="Rent Amount" value={formData.amount} onChange={handleChange} required />
         
-        <select name="status" value={formData.status} onChange={handleChange}>
+        {/* <select name="status" value={formData.status} onChange={handleChange}>
           <option value="available">Available</option>
           <option value="occupied">Occupied</option>
-        </select>
+        </select> */}
         
         <input name="facilities" type="text" placeholder="Facilities (comma separated)" value={formData.facilities} onChange={handleChange} />
 
         <button type="submit">Add Room</button>
       </form>
+
+      
     </div>
   );
 };
