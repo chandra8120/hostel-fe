@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 👈 import navigate
 import { API_URL } from '../api.config';
 import './login.css';
 
 const AdminLogin = () => {
   const [formData, setFormData] = useState({ phone: '', password: '' });
+  const navigate = useNavigate(); // 👈 initialize navigate
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -21,6 +23,7 @@ const AdminLogin = () => {
       if (res.ok) {
         alert('Login Successful');
         localStorage.setItem('token', data.token);
+        navigate('/'); // ✅ navigate to home after login
       } else {
         alert(data.message);
       }
